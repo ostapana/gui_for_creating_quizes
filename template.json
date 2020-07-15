@@ -1,0 +1,181 @@
+{
+  "evaluateImmediately": "True",
+  "questions": [
+    {
+      "right_answer": "Mars",
+      "answers": [
+        "Mars",
+        "Venuše",
+        "Saturn"
+      ],
+      "media": [
+        "img",
+        "testImg/mars.jpg"
+      ],
+      "body": "Jak se jmenuje tato planeta?"
+    },
+    {
+      "right_answer": "Venuše",
+      "answers": [
+        "Mars",
+        "Venuše",
+        "Saturn"
+      ],
+      "media": [
+        "img",
+        "testImg/venus.jpg"
+      ],
+      "body": "Jak se jmenuje tato planeta?"
+    },
+    {
+      "right_answer": "vypouštění satelitu",
+      "answers": [
+        "vypouštění satelitu",
+        "vzlet letounu",
+        "Výbuch bomby"
+      ],
+      "media": [
+        "vid",
+        "testVideo/satelite.mp4"
+      ],
+      "body": "Co se děje ve videu?"
+    },
+    {
+      "right_answer": "třicet devět",
+      "answers": [
+        "vesmírná odysea",
+        "třicet devět",
+        "Vesmírná přeprava"
+      ],
+      "media": [
+        "mus",
+        "testSound/39.mp3"
+      ],
+      "body": "jak se jmenuje tato píseň o cestovatelích do vesmíru?"
+    },
+    {
+      "right_answer": "8",
+      "answers": [
+        "7",
+        "8",
+        "9"
+      ],
+      "media": [],
+      "body": "Kolik planet má naše sluneční soustava?"
+    },
+    {
+      "right_answer": "černá díra",
+      "answers": [
+        "pulsar",
+        "Slunce",
+        "černá díra"
+      ],
+      "media": [],
+      "body": "V centru naší Galaxie se pravděpodobně nachází velký objekt s obrovskou hmotností. Takový objekt nazýváme:"
+    },
+    {
+      "right_answer": "neutronová hvězda",
+      "answers": [
+        "bílý trpaslík",
+        "neutronová hvězda",
+        "kometa"
+      ],
+      "media": [],
+      "body": "Hvězdy při svém vývoji procházejí několika stádii. Z těžké hvězdy může vzniknout těleso s rozměrem 10 až 20 km, které nazýváme:"
+    },
+    {
+      "right_answer": "exoplanety",
+      "answers": [
+        "planetky",
+        "planetoidy",
+        "exoplanety"
+      ],
+      "media": [],
+      "body": "Ve vesmíru existují hvězdy kolem kterých obíhají tělesa podobná našim planetám. Jak tyto cizí planety nazýváme?"
+    },
+    {
+      "right_answer": "sever",
+      "answers": [
+        "sever",
+        "východ",
+        "jih"
+      ],
+      "media": [],
+      "body": "Jakou světovou stranu nám ukazuje Polárka?"
+    }
+  ],
+  "rules": [
+    "Budu Vám klást otázky na téma Astronomie. Vždy máte na vyběr několik odpovědi, zvolte jen jednu."
+  ],
+  "reactions": {
+    "negative": [
+      "Ne! Takhle to přece není.",
+      "To ne! Tohle je špatně!",
+      "Tohle je bohužel chybná odpověď",
+      "Tohle je nesprávná odpověď. Příště to určitě půjde líp!",
+      "Ne",
+      "Ne",
+      "Ne",
+      "Ne, není to správně",
+      "Ne, nemáte pravdu",
+      "Ne!",
+      "NEEE!"
+    ],
+    "positive": [
+      "Přesně tak!",
+      "Ano, to je správná odpověď!",
+      "Ano, to sedí! Jde Vám to perfektně!",
+      "Skvěle, jde Vám to!",
+      "Takhle dobře bych to nezvládl ani já.",
+      "Ano",
+      "Ano",
+      "Ano",
+      "Ano, to je správně",
+      "Ano, máte pravdu.",
+      "Ano"
+    ]
+  },
+  "greetings": [
+    "Vítám Vás u zábavného vědomostního kvízu. Pojďte si se mnou otestovat své znalosti z jednotlivých okruhů!",
+    "Zdravím Vás.Zvládnete moje záludné otázky? V tomto kvízu si můžete ověřit svoje znalosti!"
+  ],
+  "tellPoints": "True",
+  "commands": {
+    "volume_down": [
+      "mluv potichu",
+      "mluv tiše",
+      "potichu"
+    ],
+    "volume_up": [
+      "mluv nahlas",
+      "nahlas",
+      "mluv hlasitěji"
+    ],
+    "stop": [
+      "konec",
+      "stop",
+      "zastav",
+      "už nechci",
+      "nechci",
+      "vzdávám to",
+      "vzdávám se"
+    ]
+  },
+  "numOfQuestions": 5,
+  "points": {
+    "1": [
+      "Tak tohle je ode mě všechno.",
+      "Už máte za sebou celou soutěž. Není to ideální výkon. Ale věřím, že příště Vám to půjde líp.",
+      "Víc otázek pro Vás už bohužel nemám.",
+      "Už je hotovo. Doufám, že se Vám můj kvíz líbil."
+    ],
+    "2": [
+      "Tak tohle je ode mě všechno. Podařilo se Vám splnit celý kvíz.",
+      "A jsme u konce. Šlo Vám to perfektně.",
+      "Gratuluju, podařilo se Vám zodpovědět všechny otázky z kvízu.",
+      "Už máte za sebou celou soutěž. Vyplnil jste všechny otázky.",
+      "Perfektní výkon. Jste bystrý člověk",
+      "Inteligentní jedinec se pozná!"
+    ]
+  }
+}
