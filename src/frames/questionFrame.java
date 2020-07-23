@@ -83,6 +83,7 @@ public class questionFrame extends javax.swing.JFrame {
         jButtonDelete = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         textFieldRightAnswer = new java.awt.TextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -207,6 +208,15 @@ public class questionFrame extends javax.swing.JFrame {
         });
         jPanel1.add(textFieldRightAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 332, 160, 28));
 
+        jButton2.setBackground(new java.awt.Color(221, 109, 225));
+        jButton2.setText("Help");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 80, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 894, 460));
 
         pack();
@@ -275,8 +285,17 @@ public class questionFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldRightAnswerActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String message = "If differen answers have different points\n "
+        + "Write them as follows:\n"
+        + "answer1: point1, answer2: point2, answer3: point3 \n"
+        + "Otherwise: answer1, answer2, answer3";
+        JOptionPane.showMessageDialog(rootPane, message);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonConfirm;
     private javax.swing.JButton jButtonDelete;
