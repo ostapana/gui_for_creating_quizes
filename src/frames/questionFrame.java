@@ -7,9 +7,22 @@ package frames;
 
 import guifortest.Informer;
 import guifortest.JSONWorker;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -34,11 +47,11 @@ public class questionFrame extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "Question", "Answers", " Answer", "Media"
+                "Question", "Answers", " Answer", "Media", "Group"
             }
         );
         jTable1.setModel(defaultTableModel);
-        jsWorker.fillTable(this.defaultTableModel, "questions", new String [] {"body", "answers", "right_answer", "media"});
+        jsWorker.fillTable(this.defaultTableModel, "questions", new String [] {"body", "answers", "right_answer", "media", "group"});
         this.informer = informer;
     }
 
@@ -59,7 +72,7 @@ public class questionFrame extends javax.swing.JFrame {
         textFieldAnswers = new java.awt.TextField();
         jButtonBack = new javax.swing.JButton();
         textFieldMedia = new java.awt.TextField();
-        textFieldRightAnswer = new java.awt.TextField();
+        textFieldGroup = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -68,6 +81,8 @@ public class questionFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButtonConfirm = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        textFieldRightAnswer = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,24 +142,24 @@ public class questionFrame extends javax.swing.JFrame {
         });
         jPanel1.add(textFieldMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 380, 430, 28));
 
-        textFieldRightAnswer.addActionListener(new java.awt.event.ActionListener() {
+        textFieldGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldRightAnswerActionPerformed(evt);
+                textFieldGroupActionPerformed(evt);
             }
         });
-        jPanel1.add(textFieldRightAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 332, 430, 28));
+        jPanel1.add(textFieldGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 160, 28));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Question");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 249, 69, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Answers, devide with ',' Example: Mars, Venus, Saturn");
+        jLabel3.setText("Answers");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Right answer");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Media, fill only you have any media in your question");
@@ -181,6 +196,17 @@ public class questionFrame extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 90, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Group");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
+
+        textFieldRightAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldRightAnswerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textFieldRightAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 332, 160, 28));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 894, 460));
 
         pack();
@@ -209,22 +235,21 @@ public class questionFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldMediaActionPerformed
 
-    private void textFieldRightAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldRightAnswerActionPerformed
+    private void textFieldGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldGroupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldRightAnswerActionPerformed
+    }//GEN-LAST:event_textFieldGroupActionPerformed
 
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonConfirmActionPerformed
 
     
+    
     private void jButtonConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmMouseClicked
         if (textFieldQuestion.getText().equals(""))
             JOptionPane.showMessageDialog(rootPane, "Field question can't be empty");
         if (textFieldAnswers.getText().equals(""))
             JOptionPane.showMessageDialog(rootPane, "Field answers can't be empty");
-        if (textFieldRightAnswer.getText().equals(""))
-            JOptionPane.showMessageDialog(rootPane, "Field right answer can't be empty");
         
         String media = textFieldMedia.getText();
         if (media.equals("")){
@@ -234,8 +259,8 @@ public class questionFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Wrong media type, media can be: img, vid, mus");
         
         jsWorker.addObjectToTable(this.defaultTableModel, "questions", 
-                new String [] {"body", "answers", "right_answer", "media"}, 
-                new java.awt.TextField [] {textFieldQuestion, textFieldAnswers, textFieldRightAnswer, textFieldMedia}, new String [] {"", "arr", "", "arr"});
+                new String [] {"body", "answers", "right_answer", "media", "group"}, 
+                new java.awt.TextField [] {textFieldQuestion, textFieldAnswers, textFieldRightAnswer, textFieldMedia, textFieldGroup});
     }//GEN-LAST:event_jButtonConfirmMouseClicked
 
     private void jButtonDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteMouseClicked
@@ -245,6 +270,10 @@ public class questionFrame extends javax.swing.JFrame {
             Logger.getLogger(greetingFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonDeleteMouseClicked
+
+    private void textFieldRightAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldRightAnswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldRightAnswerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,10 +287,12 @@ public class questionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private java.awt.TextField textFieldAnswers;
+    private java.awt.TextField textFieldGroup;
     private java.awt.TextField textFieldMedia;
     private java.awt.TextField textFieldQuestion;
     private java.awt.TextField textFieldRightAnswer;

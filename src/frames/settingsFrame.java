@@ -22,6 +22,9 @@ public class settingsFrame extends javax.swing.JFrame {
     String selectedFile;
     Boolean evalIm = false;
     Boolean tellPoints = false;
+    Boolean withGroups = false;
+    Boolean binaryEvaluation = false;
+    Boolean severalPlayers = false;
     Informer informer;
     /**
      * Creates new form settingsFrame
@@ -54,18 +57,27 @@ public class settingsFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButtonBack = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNumOfPlayers = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelTellPoints = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jCheckBoxEv = new javax.swing.JCheckBox();
+        jCheckBoxGroup = new javax.swing.JCheckBox();
+        jCheckBoxDifPoints = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        jTextNumOfQuestions = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jCheckBoxEvAnsw = new javax.swing.JCheckBox();
+        jLabel7 = new javax.swing.JLabel();
         jCheckBoxTl = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        jCheckBoxSevPlayers = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
+        jTextFieldEvalFunc = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,8 +97,8 @@ public class settingsFrame extends javax.swing.JFrame {
                 jButtonBackActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 266, 77, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 81, 78, -1));
+        jPanel1.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 77, -1));
+        jPanel1.add(jTextFieldNumOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 78, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Number of questions");
@@ -94,15 +106,15 @@ public class settingsFrame extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Evaluate answer after each question");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 142, 237, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 237, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Final Settings");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 11, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Tell points at the end");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 214, 237, -1));
+        jLabelTellPoints.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelTellPoints.setText("Tell points at the end");
+        jPanel1.add(jLabelTellPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 237, -1));
 
         jButton1.setBackground(new java.awt.Color(200, 247, 197));
         jButton1.setText("Confirm");
@@ -112,55 +124,128 @@ public class settingsFrame extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 266, 96, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 96, -1));
 
-        jCheckBoxEv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCheckBoxEv.addMouseListener(new java.awt.event.MouseAdapter() {
+        jCheckBoxGroup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCheckBoxGroup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxEvMouseClicked(evt);
+                jCheckBoxGroupMouseClicked(evt);
             }
         });
-        jPanel1.add(jCheckBoxEv, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 142, -1, -1));
+        jPanel1.add(jCheckBoxGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+
+        jCheckBoxDifPoints.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxDifPointsMouseClicked(evt);
+            }
+        });
+        jCheckBoxDifPoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxDifPointsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBoxDifPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Number of players");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, -1));
+        jPanel1.add(jTextNumOfQuestions, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 78, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Different  categories of questions");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        jCheckBoxEvAnsw.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCheckBoxEvAnsw.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxEvAnswMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jCheckBoxEvAnsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Different answers have different points");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         jCheckBoxTl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jCheckBoxTlMouseClicked(evt);
             }
         });
-        jPanel1.add(jCheckBoxTl, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 210, -1, -1));
+        jCheckBoxTl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxTlActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBoxTl, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Several players");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+
+        jCheckBoxSevPlayers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxSevPlayersActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBoxSevPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Evaluation function");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jTextFieldEvalFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEvalFuncActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldEvalFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 150, -1));
+
+        jButton2.setBackground(new java.awt.Color(221, 109, 225));
+        jButton2.setText("Help");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private Boolean setCheckBox(javax.swing.JCheckBox checkBox, String valToCheck){
+        if (valToCheck.equals("True")){
+                checkBox.setSelected(true);
+                return true;
+            }  
+        return false;
+    }
     private void initButtons(){
         try {
             Object obj = new JSONParser().parse(new FileReader(selectedFile)); 
             JSONObject jo = (JSONObject) obj;
-            String locEvalImed = (String) jo.get("evaluateImmediately");
-            if (locEvalImed.equals("True")){
-                evalIm = true;
-                jCheckBoxEv.setSelected(true);
-            }  
-            String locTellPoints = (String) jo.get("tellPoints");
-            if (locTellPoints.equals("True")){
-                tellPoints = true;
-                jCheckBoxTl.setSelected(true);
-            }
-            Long numOfQuestions = (Long) jo.get("numOfQuestions");
-            this.jTextField1.setText(String.valueOf(numOfQuestions));
+
+            evalIm = setCheckBox(jCheckBoxEvAnsw, (String) jo.get("evaluateImmediately"));
+            tellPoints = setCheckBox(jCheckBoxTl, (String) jo.get("tellPoints"));
+            withGroups = setCheckBox(jCheckBoxGroup, (String) jo.get("withGroups"));
+            binaryEvaluation = setCheckBox(jCheckBoxDifPoints, (String) jo.get("binaryEvaluation"));
+            severalPlayers = setCheckBox(jCheckBoxSevPlayers, (String) jo.get("multiPlayer"));
+            
+            jTextNumOfQuestions.setText(String.valueOf(jo.get("numOfQuestions")));
+            jTextFieldNumOfPlayers.setText(String.valueOf(jo.get("numOfPlayers")));
+            jTextFieldEvalFunc.setText(String.valueOf(jo.get("evalFunction")));
+            
         }
         catch (ParseException | IOException ex) {
             Logger.getLogger(greetingFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -178,29 +263,42 @@ public class settingsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBackActionPerformed
 
+    private void putToJSON(String key, Boolean val, JSONObject jo){
+        if (val)
+            jo.put(key, "True"); 
+        else
+            jo.put(key, "False"); 
+    }
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String numOfQuestions = jTextField1.getText();
+        String numOfQuestions = jTextNumOfQuestions.getText();
+        String numOfPlayers = jTextFieldNumOfPlayers.getText();
+        String evalFunc = jTextFieldEvalFunc.getText();
         try {
             Object obj = new JSONParser().parse(new FileReader(selectedFile)); 
             JSONObject jo = (JSONObject) obj;
+            
             if (!numOfQuestions.equals(""))
                 jo.put("numOfQuestions", Integer.parseInt(numOfQuestions)); 
-            if (evalIm)
-                jo.put("evaluateImmediately", "True"); 
-            else
-                jo.put("evaluateImmediately", "False"); 
+            if (!numOfPlayers.equals(""))
+                jo.put("numOfPlayers", Integer.parseInt(numOfQuestions)); 
+            if (! evalFunc.contains("score") && !evalFunc.equals(""))
+                JOptionPane.showMessageDialog(rootPane, "Evaluation function should be empty or contain word 'score'");
+            else{
+                jo.put("evalFunction", evalFunc); 
             
-            if (tellPoints)
-                jo.put("tellPoints", "True"); 
-            else
-                jo.put("tellPoints", "False");
-          
-        PrintWriter pw = new PrintWriter(selectedFile); 
-        pw.write(jo.toJSONString()); 
-          
-        pw.flush(); 
-        pw.close(); 
-        JOptionPane.showMessageDialog(rootPane, "Success");
+                putToJSON("evaluateImmediately", evalIm, jo);
+                putToJSON("tellPoints", tellPoints, jo);
+                putToJSON("withGroups", withGroups, jo);
+                putToJSON("multiPlayer", severalPlayers, jo);
+                putToJSON("binaryEvaluation", binaryEvaluation, jo);
+
+                PrintWriter pw = new PrintWriter(selectedFile); 
+                pw.write(jo.toJSONString()); 
+
+                pw.flush(); 
+                pw.close(); 
+                JOptionPane.showMessageDialog(rootPane, "Success");
+                }
         }
         catch (ParseException | IOException ex) {
             Logger.getLogger(greetingFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -209,27 +307,69 @@ public class settingsFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jCheckBoxEvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxEvMouseClicked
+    private void jCheckBoxGroupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxGroupMouseClicked
+        withGroups = ! withGroups;
+    }//GEN-LAST:event_jCheckBoxGroupMouseClicked
+
+    private void jCheckBoxDifPointsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxDifPointsMouseClicked
+        binaryEvaluation =! binaryEvaluation;
+    }//GEN-LAST:event_jCheckBoxDifPointsMouseClicked
+
+    private void jCheckBoxEvAnswMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxEvAnswMouseClicked
         evalIm = !evalIm;
-    }//GEN-LAST:event_jCheckBoxEvMouseClicked
+    }//GEN-LAST:event_jCheckBoxEvAnswMouseClicked
+
+    private void jCheckBoxDifPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxDifPointsActionPerformed
+
+    }//GEN-LAST:event_jCheckBoxDifPointsActionPerformed
 
     private void jCheckBoxTlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxTlMouseClicked
         tellPoints = !tellPoints;
     }//GEN-LAST:event_jCheckBoxTlMouseClicked
 
+    private void jCheckBoxTlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxTlActionPerformed
+
+    private void jTextFieldEvalFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEvalFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEvalFuncActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String message = "Evaluation function should contain word 'score'.\n "
+                + "It is used for computing final score of the player.\n"
+                + "Ex: score/2 \n"
+                + "This means that if player gets 20 points, they will be converted to 10 at the end.\n"
+                + "This field can be empty";
+        JOptionPane.showMessageDialog(rootPane, message);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCheckBoxSevPlayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSevPlayersActionPerformed
+        severalPlayers = ! severalPlayers;
+    }//GEN-LAST:event_jCheckBoxSevPlayersActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonBack;
-    private javax.swing.JCheckBox jCheckBoxEv;
+    private javax.swing.JCheckBox jCheckBoxDifPoints;
+    private javax.swing.JCheckBox jCheckBoxEvAnsw;
+    private javax.swing.JCheckBox jCheckBoxGroup;
+    private javax.swing.JCheckBox jCheckBoxSevPlayers;
     private javax.swing.JCheckBox jCheckBoxTl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelTellPoints;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldEvalFunc;
+    private javax.swing.JTextField jTextFieldNumOfPlayers;
+    private javax.swing.JTextField jTextNumOfQuestions;
     // End of variables declaration//GEN-END:variables
 }

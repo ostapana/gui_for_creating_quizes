@@ -6,6 +6,8 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -173,7 +175,7 @@ public class JSONWorker {
     
     //the same as addText but for tables
     public void addObjectToTable(javax.swing.table.DefaultTableModel model,
-            String keyWord, String [] keyWords, java.awt.TextField [] textFields, String [] types){
+            String keyWord, String [] keyWords, java.awt.TextField [] textFields){
         Object[] row = new Object[keyWords.length];
             
         for (int i = 0; i < keyWords.length; i++){
@@ -199,7 +201,7 @@ public class JSONWorker {
                 try (PrintWriter pw = new PrintWriter(selectedFile, "UTF8")) {
                     for (int i = 0; i<keyWords.length; i++){   
                         String key = keyWords[i];
-                        if (types[i].equals("arr") && !textFields[i].getText().equals("[]")){
+                        if (key.equals("media") && !textFields[i].getText().equals("[]")){
                             String answers = textFields[i].getText(); 
                             String[] values = answers.split(",");
                             JSONArray locAr = new JSONArray();
@@ -207,6 +209,19 @@ public class JSONWorker {
                                 locAr.add(value);
                             }
                             locJo.put(key, locAr);
+                        }
+                        else if (key.equals("answers")){
+                            String answers = textFields[i].getText(); 
+                            String[] values = answers.split(",");
+                            Map m = new LinkedHashMap();
+                            for (String value: values){
+                                String keyVal[] = value.split(":");
+                                if (keyVal.length == 1)
+                                    m.put(keyVal[0], 0);
+                                else
+                                    m.put(keyVal[0], Integer.parseInt(keyVal[1]));
+                            }
+                            locJo.put(key, m); 
                         }
                         else
                             locJo.put(key, textFields[i].getText());
