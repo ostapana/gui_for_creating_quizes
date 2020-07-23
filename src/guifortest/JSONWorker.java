@@ -5,6 +5,7 @@ import frames.greetingFrame;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -205,9 +206,7 @@ public class JSONWorker {
                             String answers = textFields[i].getText(); 
                             String[] values = answers.split(",");
                             JSONArray locAr = new JSONArray();
-                            for (String value : values){
-                                locAr.add(value);
-                            }
+                            locAr.addAll(Arrays.asList(values));
                             locJo.put(key, locAr);
                         }
                         else if (key.equals("answers")){
@@ -218,8 +217,17 @@ public class JSONWorker {
                                 String keyVal[] = value.split(":");
                                 if (keyVal.length == 1)
                                     m.put(keyVal[0], 0);
-                                else
-                                    m.put(keyVal[0], Integer.parseInt(keyVal[1]));
+                                else{
+                                    int intVal;
+                                    try {
+                                        String replaceAll = keyVal[1].replaceAll("\\s+","");
+                                        intVal = Integer.parseInt(replaceAll);
+                                      } catch (NumberFormatException e) {
+                                           JOptionPane.showMessageDialog(null, "point is not a number");
+                                           intVal = 0;
+                                      }
+                                    m.put(keyVal[0], intVal);
+                                }
                             }
                             locJo.put(key, m); 
                         }
