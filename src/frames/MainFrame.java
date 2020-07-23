@@ -428,7 +428,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddGroupsActionPerformed
 
     private void jButtonAddSeveralPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddSeveralPlayersMouseClicked
-        // TODO add your handling code here:
+        multiPlayersFrame pFrame;
+        try {
+            pFrame = new multiPlayersFrame(selectedFile, jsWorker, informer);
+            pFrame.setLocationRelativeTo(this);
+            pFrame.setVisible(true);
+            pFrame.pack();
+            this.dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonAddSeveralPlayersMouseClicked
 
     private void jButtonAddSeveralPlayersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSeveralPlayersActionPerformed
