@@ -7,23 +7,9 @@ package frames;
 
 import guifortest.Informer;
 import guifortest.JSONWorker;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 /**
  *
  * @author clear_atom
@@ -256,17 +242,23 @@ public class questionFrame extends javax.swing.JFrame {
     
     
     private void jButtonConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmMouseClicked
-        if (textFieldQuestion.getText().equals(""))
+        if (textFieldQuestion.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "Field question can't be empty");
-        if (textFieldAnswers.getText().equals(""))
+            return;
+        }
+        if (textFieldAnswers.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "Field answers can't be empty");
+            return;
+        }
         
         String media = textFieldMedia.getText();
         if (media.equals("")){
             textFieldMedia.setText("[]");
         }
-        else if (!media.startsWith("img") && (! media.startsWith("vid"))&& (! media.startsWith("mus")))
+        else if (!media.startsWith("img") && (! media.startsWith("vid"))&& (! media.startsWith("mus"))){
             JOptionPane.showMessageDialog(rootPane, "Wrong media type, media can be: img, vid, mus");
+            return;
+        }
         
         jsWorker.addObjectToTable(this.defaultTableModel, "questions", 
                 new String [] {"body", "answers", "right_answer", "media", "group"}, 
